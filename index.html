@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kristine Castres - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poor+Story&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    body {
+      font-family: 'Poor Story', sans-serif;
+      background-color: #1A1A1D;
+    }
+
+    .nav-link {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #ddd;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover::before {
+      width: 12px;
+      height: 12px;
+      background-color: #38bdf8;
+      box-shadow: 0 0 10px rgba(21, 96, 128, 0.7);
+    }
+
+    .nav-link:hover {
+      color: white;
+    }
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="text-gray-200">
+  <div class="flex flex-col lg:flex-row h-screen">
+    <!-- Sidebar (For mobile and large screens) -->
+    <div class="w-full lg:w-1/4 px-8 py-12 fixed lg:static h-auto lg:h-screen bg-gray-800 lg:bg-transparent">
+      <header class="text-justify mb-16">
+        <h1 class="text-4xl font-bold text-white">Kristine Castres</h1>
+        <p class="text-lg mt-2 text-gray-300">Aspiring Software Developer</p>
+        <p class="mt-4 text-gray-400 text-justify">
+          I'm a creative and passionate IT student dedicated to developing interactive applications and exploring innovative solutions in technology.
+        </p>
+      </header>
+      <div class="px-8 py-20 lg:px-8 lg:py-20">
+        <nav class="flex flex-col space-y-4 text-gray-500 text-sm">
+          <a href="#about" class="nav-link text-xl">About</a>
+          <a href="#projects" class="nav-link text-xl">Projects</a>
+          <a href="#experience" class="nav-link text-xl">Experience</a>
+        </nav>
+      </div>
+
+      <!-- Social Links (Responsive) -->
+      <div class="px-10 py-10 lg:px-10 lg:py-10 fixed bottom-4 space-x-6 flex justify-around text-2xl text-gray-400 lg:w-1/4">
+        <a href="https://github.com/castresK" class="hover:text-white">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/kristinecastres/" class="hover:text-white">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:kristinecastres10@gmail.com" class="hover:text-white">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Content (Scrollable, for larger screens) -->
+    <div class="w-full lg:w-3/4 ml-auto px-8 py-12 overflow-y-auto">
+      <!-- About Section -->
+      <section id="about" class="mb-16 opacity-0">
+        <h2 class="text-3xl font-semibold mb-4">About</h2>
+        <p class="text-gray-300 leading-relaxed">
+          I'm a passionate IT student specializing in interactive applications and creative designs. I thrive at the intersection of coding and innovation, bringing projects to life in Unity, Flutter, and web development. With a strong foundation in software development and a curiosity for learning, I'm eager to explore diverse opportunities in the tech world. Let's create something amazing together!
+        </p>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="mb-16 opacity-0">
+        <h2 class="text-3xl font-semibold mb-6">Projects</h2>
+        <div class="space-y-4">
+          <div class="flex justify-between border-b border-gray-700 pb-2">
+            <span>Doodle</span>
+            <span class="text-gray-400">Python drawing app</span>
+            <span class="text-gray-400">1st Sem 2023</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-700 pb-2">
+            <span>Secret</span>
+            <span class="text-gray-400">Static Website</span>
+            <span class="text-gray-400">2nd Sem 2023</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-700 pb-2">
+            <span>Picture Who?</span>
+            <span class="text-gray-400">Java Guessing Game</span>
+            <span class="text-gray-400">2nd Sem 2023</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-700 pb-2">
+            <span>PetPal</span>
+            <span class="text-gray-400">Old 2D virtual pet</span>
+            <span class="text-gray-400">1st Sem 2024</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-700 pb-2">
+            <span>sPoki</span>
+            <span class="text-gray-400">Python-Spotify music player</span>
+            <span class="text-gray-400">November 2024</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section (Optional) -->
+      <!-- <section id="experience" class="opacity-0">
+        <h2 class="text-3xl font-semibold mb-4">Experience</h2>
+        <p class="text-gray-300 leading-relaxed">
+          Throughout my journey as an IT student, I’ve gained valuable experience in developing interactive applications, collaborating on innovative projects, and mastering technologies like Unity, Flutter, and web development. These experiences have strengthened my foundation in software development and fueled my passion for creating impactful solutions.
+        </p>
+      </section> -->
+    </div>
+  </div>
+
+  <!-- JavaScript for Intersection Observer -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-fadeInUp');
+              entry.target.classList.remove('opacity-0');
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    });
+  </script>
+</body>
+</html>
