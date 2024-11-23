@@ -6,15 +6,22 @@
   <title>Kristine Castres - Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poor+Story&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poor+Story&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
     body {
       font-family: 'Poor Story', sans-serif;
       background-color: #1A1A1D;
+      scroll-behavior: smooth;
+    }
+
+    .animate-fadeInUp {
+      animation: fadeInUp 1s ease-in-out forwards;
     }
 
     .nav-link {
       position: relative;
+      display: inline-block; 
       padding-left: 24px;
+      vertical-align: middle; 
     }
 
     .nav-link::before {
@@ -22,7 +29,7 @@
       position: absolute;
       left: 0;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(-50%); 
       width: 8px;
       height: 8px;
       border-radius: 50%;
@@ -34,19 +41,82 @@
     .nav-link:hover::before {
       width: 12px;
       height: 12px;
-      background-color: #38bdf8;
-      box-shadow: 0 0 10px rgba(21, 96, 128, 0.7);
+      background-color: #A64D79;
+      box-shadow: 0 0 10px #A64D79;
     }
 
-    .nav-link:hover {
-      color: white;
+    .nav-link.active {
+      color: #ddd;
+      font-weight: bold;
+      font-size: 2em;
+      
     }
+
+    .social-icons-footer a {
+      color: #bbb;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .social-icons-footer a:hover {
+      color: white;
+      box-shadow: 0 0 105px #A64D79;
+    }
+
+    .social-icons-footer i {
+      font-size: 1.5em; 
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons-footer a:hover i {
+      transform: scale(1.2);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .progress-bar {
+      width: 0;
+      transition: width 1s ease-in-out;
+    }
+
+    .contact-form input, .contact-form textarea {
+      border-radius: 8px;
+      border: 1px solid #333;
+      background-color: #1A1A1D;
+      color: #fff;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      width: 100%;
+    }
+
+    .contact-form button {
+      background-color: #6A1E55;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 2rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #A64D79;
+    }
+
   </style>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body class="text-gray-200">
   <div class="flex flex-col lg:flex-row h-screen">
-    <!-- Sidebar (For mobile and large screens) -->
+    <!-- Sidebar -->
     <div class="w-full lg:w-1/4 px-8 py-12 fixed lg:static h-auto lg:h-screen bg-gray-800 lg:bg-transparent">
       <header class="text-justify mb-16">
         <h1 class="text-4xl font-bold text-white">Kristine Castres</h1>
@@ -55,15 +125,16 @@
           I'm a creative and passionate IT student dedicated to developing interactive applications and exploring innovative solutions in technology.
         </p>
       </header>
-      <div class="px-8 py-20 lg:px-8 lg:py-20">
+      <div class="px-8 py-20 lg:px-8 lg:py-5">
         <nav class="flex flex-col space-y-4 text-gray-500 text-sm">
           <a href="#about" class="nav-link text-xl">About</a>
+          <a href="#skills" class="nav-link text-xl">Skills</a>
           <a href="#projects" class="nav-link text-xl">Projects</a>
-          <!-- <a href="#experience" class="nav-link text-xl">Experience</a> -->
+          <a href="#contact" class="nav-link text-xl">Contact</a>
         </nav>
       </div>
 
-      <div class="px-10 py-10 fixed bottom-4 flex space-x-4 text-2xl text-gray-400 ">
+      <div class="social-icons-footer px-10 py-10 fixed bottom-4 flex space-x-4 text-2xl text-gray-400">
         <a href="https://github.com/castresK" class="hover:text-white">
           <i class="fab fa-github"></i>
         </a>
@@ -73,77 +144,257 @@
         <a href="mailto:kristinecastres10@gmail.com" class="hover:text-white">
           <i class="fas fa-envelope"></i>
         </a>
+        <a href="https://www.facebook.com/Kristineeehhh" class="hover:text-white">
+          <i class="fab fa-facebook"></i>
+        </a>
       </div>
     </div>
 
-
-    <div class="w-full lg:w-3/4 ml-auto px-8 py-12 overflow-y-auto">
+    <!-- Main Content -->
+    <div class="w-full lg:w-3/4 ml-auto px-20 py-12 overflow-y-auto">
       <!-- About Section -->
-      <section id="about" class="mb-16 opacity-0">
+      <section id="about" class="mb-24 opacity-0">
         <h2 class="text-3xl font-semibold mb-4">About</h2>
         <p class="text-gray-300 leading-relaxed">
           I'm a passionate IT student specializing in interactive applications and creative designs. I thrive at the intersection of coding and innovation, bringing projects to life in Unity, Flutter, and web development. With a strong foundation in software development and a curiosity for learning, I'm eager to explore diverse opportunities in the tech world. Let's create something amazing together!
         </p>
       </section>
 
+      <!-- Skills Section -->
+      <section id="skills" class="mb-24 opacity-0">
+        <h2 class="text-3xl font-semibold mb-8 text-gray-200">Skills</h2>
+        <div class="space-y-12">
+          <!-- Programming Languages -->
+          <div>
+            <h3 class="text-xl font-semibold text-green-400 mb-4 flex items-center">
+              <i class="fas fa-code text-green-400 mr-2"></i> Programming Languages
+            </h3>
+            
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-300">HTML & CSS</span>
+                  <span class="text-gray-400">85%</span>
+                </div>
+                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                  <div class="h-2.5 rounded-full" style=" background-color: #38a1db; width: 85%;"></div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-gray-300">Python</span>
+                    <span class="text-gray-400">75%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-2.5">
+                    <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 75%;"></div>
+                  </div>
+
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-300">JavaScript</span>
+                  <span class="text-gray-400">50%</span>
+                </div>
+                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                  <div class="bg-green-400 h-2.5 rounded-full" style="width: 50%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-300">Dart</span>
+                  <span class="text-gray-400">30%</span>
+                </div>
+                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                  <div class="bg-blue-400 h-2.5 rounded-full" style="width: 30%;"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-300">C#</span>
+                  <span class="text-gray-400">85%</span>
+                </div>
+                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                  <div class="bg-purple-400 h-2.5 rounded-full" style="width: 85%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div class="mt-10 p-4">
+          <h3 class="text-xl font-semibold text-pink-400 mb-4 flex items-center">
+            <i class="fas fa-tools text-pink-400 mr-2"></i> Frameworks & Tools
+          </h3>
+          <div class="space-y-2">
+            <p class="text-gray-300 flex items-center">
+              <i class="fas fa-check-circle text-green-400 mr-2"></i> Unity
+            </p>
+            <p class="text-gray-300 flex items-center">
+              <i class="fas fa-check-circle text-green-400 mr-2"></i> Flutter
+            </p>
+            <p class="text-gray-300 flex items-center">
+              <i class="fas fa-check-circle text-green-400 mr-2"></i> React
+            </p>
+            <p class="text-gray-300 flex items-center">
+              <i class="fas fa-check-circle text-green-400 mr-2"></i> Firebase
+            </p>
+            <p class="text-gray-300 flex items-center">
+              <i class="fas fa-check-circle text-green-400 mr-2"></i> MongoDB
+            </p>
+          </div>
+        </div>
+        
+        <!-- Soft Skills -->
+        <div class="mt-10 p-4">
+          <h3 class="text-xl font-semibold text-blue-400 mb-4 flex items-center">
+            <i class="fas fa-lightbulb text-blue-400 mr-2"></i> Soft Skills
+          </h3>
+          <ul class="text-gray-300 space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-check-circle text-yellow-400 mr-2"></i> Problem-Solving
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check-circle text-yellow-400 mr-2"></i> Team Collaboration
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check-circle text-yellow-400 mr-2"></i> Creativity
+            </li>
+          </ul>
+        </div>
+        
+        
+      </section>
+
       <!-- Projects Section -->
-      <section id="projects" class="mb-16 opacity-0">
-        <h2 class="text-3xl font-semibold mb-6">Projects</h2>
-        <div class="space-y-4">
-          <div class="flex justify-between border-b border-gray-700 pb-2">
-            <span>Doodle</span>
-            <span class="text-gray-400">Python drawing app</span>
+      <section id="projects" class="mb-24 opacity-0">
+        <h2 class="text-3xl font-semibold mb-8 text-gray-200">Projects</h2>
+        <div class="space-y-6">
+          <!-- Individual Project -->
+          <div class="flex justify-between items-center p-4 rounded-md transition duration-200">
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-paint-brush text-green-400"></i>
+              <span class="text-lg font-medium text-gray-300">Doodle</span>
+            </div>
+            <span class="text-gray-400">Python Drawing App</span>
             <span class="text-gray-400">1st Sem 2023</span>
           </div>
-          <div class="flex justify-between border-b border-gray-700 pb-2">
-            <span>Secret</span>
+          <div class="flex justify-between items-center  p-4 rounded-md transition duration-200">
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-globe text-blue-400"></i>
+              <span class="text-lg font-medium text-gray-300">Secret</span>
+            </div>
             <span class="text-gray-400">Static Website</span>
             <span class="text-gray-400">2nd Sem 2023</span>
           </div>
-          <div class="flex justify-between border-b border-gray-700 pb-2">
-            <span>Picture Who?</span>
+          <div class="flex justify-between items-center p-4 rounded-md transition duration-200">
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-gamepad text-red-400"></i>
+              <span class="text-lg font-medium text-gray-300">Picture Who?</span>
+            </div>
             <span class="text-gray-400">Java Guessing Game</span>
             <span class="text-gray-400">2nd Sem 2023</span>
           </div>
-          <div class="flex justify-between border-b border-gray-700 pb-2">
-            <span>PetPal</span>
-            <span class="text-gray-400">2D 8Bit virtual pet</span>
+          <div class="flex justify-between items-center p-4 rounded-md transition duration-200">
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-paw text-yellow-400"></i>
+              <span class="text-lg font-medium text-gray-300">PetPal</span>
+            </div>
+            <span class="text-gray-400">2D 8Bit Virtual Pet</span>
             <span class="text-gray-400">1st Sem 2024</span>
           </div>
-          <div class="flex justify-between border-b border-gray-700 pb-2">
-            <span>sPoki</span>
-            <span class="text-gray-400">Python-Spotify music player</span>
+          <div class="flex justify-between items-center p-4 rounded-md transition duration-200">
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-music text-purple-400"></i>
+              <span class="text-lg font-medium text-gray-300">sPoki</span>
+            </div>
+            <span class="text-gray-400">Python-Spotify Music Player</span>
             <span class="text-gray-400">November 2024</span>
           </div>
         </div>
       </section>
 
-      <!-- Experience Section (Optional) -->
-      <!-- <section id="experience" class="opacity-0">
-        <h2 class="text-3xl font-semibold mb-4">Experience</h2>
-        <p class="text-gray-300 leading-relaxed">
-          Throughout my journey as an IT student, I’ve gained valuable experience in developing interactive applications, collaborating on innovative projects, and mastering technologies like Unity, Flutter, and web development. These experiences have strengthened my foundation in software development and fueled my passion for creating impactful solutions.
-        </p>
-      </section> -->
+      <!-- Contact Section -->
+      <section id="contact" class="mb-24 text-center opacity-0">
+        <h2 class="text-3xl font-semibold mb-6 text-gray-200">Contact Me</h2>
+        <form
+          action="mailto:kristinecastres10@gmail.com"
+          method="post"
+          enctype="text/plain"
+          class="space-y-6 max-w-lg mx-auto p-6 "
+        >
+          <div>
+            <label for="name" class="block text-gray-300 text-sm font-medium mb-1">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full bg-gray-700 text-gray-200 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-gray-300 text-sm font-medium mb-1">Your Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full bg-gray-700 text-gray-200 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
+          <div>
+            <label for="message" class="block text-gray-300 text-sm font-medium mb-1">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              class="w-full bg-gray-700 text-gray-200 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400"
+            >
+            </textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-[#A64D79] text-white py-2 rounded-md font-semibold hover:bg-[#6A1E55] transition duration-200"
+          >
+            Send Message
+          </button>
+        </form>
+      </section>
     </div>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const sections = document.querySelectorAll('section');
-
+      const navLinks = document.querySelectorAll('.nav-link');
+      const progressBars = document.querySelectorAll('.progress-bar');
+  
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('animate-fadeInUp');
               entry.target.classList.remove('opacity-0');
+  
+              // Animate progress bars for the skills section
+              if (entry.target.id === 'skills') {
+                progressBars.forEach((bar) => {
+                  bar.style.width = bar.getAttribute('style').split(':')[1].trim();
+                });
+              }
+  
+              // Update active navigation link
+              navLinks.forEach((link) => link.classList.remove('active'));
+              const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+              if (activeLink) {
+                activeLink.classList.add('active');
+              }
             }
           });
         },
-        { threshold: 0.1 }
+        { threshold: 0.5 } // Adjust threshold to suit your preference
       );
-
+  
       sections.forEach((section) => observer.observe(section));
     });
   </script>
