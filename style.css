@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+    body {
+        font-family: 'Poor Story', sans-serif;
+        background-color: #1A1A1D;
+        scroll-behavior: smooth;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }  
+
+    .animate-fadeInUp {
+        animation: fadeInUp 1s ease-in-out forwards;
+    }
+
+
+    .nav-link {
+        position: relative;
+        display: inline-block; 
+        padding-left: 24px;
+        vertical-align: middle; 
+        color: #bbb; 
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+    }
+    
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #ddd;
+        opacity: 0.6;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover::before,
+    .nav-link:focus::before {
+        width: 12px;
+        height: 12px;
+        background-color: #A64D79;
+        box-shadow: 0 0 10px #A64D79;
+    }
+    
+    .nav-link:active::before {
+        width: 12px;
+        height: 12px;
+        background-color: #A64D79;
+        box-shadow: 0 0 10px #A64D79;
+    }
+    
+    .nav-link.active {
+        color: #ddd;
+        font-weight: bold;
+        font-size: 2em;
+        transform: translateY(-4px);
+    }
+    
+    .nav-link:hover,
+    .nav-link:focus {
+        color: #ddd; 
+    }
+    
+    .nav-link.active::before {
+        width: 12px;
+        height: 12px;
+        background-color: #A64D79;
+        box-shadow: 0 0 10px #A64D79;
+    }
+    
+    .nav-link.active {
+        color: #ddd;
+        font-weight: bold;
+        font-size: 2em;
+    }
+    
+    
+    .social-icons-footer a {
+        color: #bbb;
+        transition: color 0.3s ease-in-out;
+    }
+    
+    .social-icons-footer a:hover {
+        color: white;
+        box-shadow: 0 0 105px #A64D79;
+    }
+    
+    .social-icons-footer i {
+        font-size: 1.5em;
+        transition: transform 0.3s ease;
+    }
+    
+    .social-icons-footer a:hover i {    
+        transform: scale(1.2);
+    }
+    
+
+  .progress-bar {
+        width: 0;
+        transition: width 1s ease-in-out;
+    }
+
+  .contact-form input, .contact-form textarea {
+        border-radius: 8px;
+        border: 1px solid #333;
+        background-color: #1A1A1D;
+        color: #fff;
+        padding: 0.75rem;
+        margin: 0.5rem 0;
+        width: 100%;
+    }
+
+  .contact-form button {
+        background-color: #6A1E55;
+        color: #fff;
+        border: none;
+        padding: 0.75rem 2rem;
+        margin-top: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+  .contact-form button:hover {
+        background-color: #A64D79;
+    }
