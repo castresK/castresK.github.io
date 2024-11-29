@@ -57,6 +57,7 @@
         color: #ddd;
         font-weight: bold;
         font-size: 2em;
+        font-weight: bold;
         transform: translateY(-4px);
     }
     
@@ -127,3 +128,8 @@
   .contact-form button:hover {
         background-color: #A64D79;
     }
+
+    .sidebar {
+        transition: transform 0.3s ease-in-out;
+    }
+      
